@@ -3,10 +3,10 @@ import { dockApps } from "#constants";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import useWindowStore from "#store/Window";
+import useWindowStore from "#store/Window.js";
 
 const Dock = () => {
-  const { openWindow, closeWindow, windows} = useWindowStore();
+  const { openWindow, closeWindow, windows } = useWindowStore();
   const dockRef = useRef(null);
 
   useGSAP(() => {
@@ -19,8 +19,7 @@ const Dock = () => {
       const { left } = dock.getBoundingClientRect();
 
       icons.forEach((icon) => {
-        const { left: iconLeft, width } =
-          icon.getBoundingClientRect();
+        const { left: iconLeft, width } = icon.getBoundingClientRect();
 
         const center = iconLeft - left + width / 2;
         const distance = Math.abs(mouseX - center);
@@ -63,26 +62,18 @@ const Dock = () => {
   }, []);
 
   const toggleApp = (app) => {
-if(!app.canOpen) return;
-const window = windows[app.id];
-if(!window) {
-  console.error(`Window not found for app: ${app.id} `);
-  return
-}
-if(window.isOpen) {
-  closeWindow(app.id);
-
-} else {
-  openWindow(app.id)
-}
-console.log(windows);
-
-
-
-
-
-
-
+    if (!app.canOpen) return;
+    const window = windows[app.id];
+    if (!window) {
+      console.error(`Window not found for app: ${app.id} `);
+      return;
+    }
+    if (window.isOpen) {
+      closeWindow(app.id);
+    } else {
+      openWindow(app.id);
+    }
+    console.log(windows);
   };
 
   return (
