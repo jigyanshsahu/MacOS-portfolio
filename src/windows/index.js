@@ -1,2 +1,3 @@
 import Terminal from "#windows/Terminal";
-export { Terminal };
+import Safari from "#windows/Safari";
+export { Terminal, Safari };
