@@ -24,7 +24,10 @@ const useWindowStore = create(
         console.log("Closing:", windowKey, state.windows);
         win.isOpen = false;
         win.zIndex = INITIAL_Z_INDEX;
-        win.data = null;
+        // Preserve data for finder window to maintain state
+        if (windowKey !== "finder") {
+          win.data = null;
+        }
       }),
 
     focusWindow: (windowKey) =>
