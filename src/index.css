@@ -308,7 +308,7 @@ body {
   }
 
   #finder {
-    @apply absolute w-3xl left-40 top-20 shadow-2xl drop-shadow-2xl overflow-hidden rounded-xl;
+    @apply absolute w-4xl h-[600px] left-40 top-20 shadow-2xl drop-shadow-2xl overflow-hidden rounded-xl bg-white;
 
     .sidebar {
       @apply w-48 bg-gray-50 border-r border-gray-200 flex flex-col p-5 space-y-3;
@@ -335,7 +335,7 @@ body {
     }
 
     .content {
-      @apply flex-1 p-8 bg-white max-w-2xl relative;
+      @apply flex-1 p-8 bg-white relative;
 
       li {
         @apply absolute flex items-center flex-col gap-3;
