@@ -54,7 +54,7 @@ const openItem = (item) => {
       <div className="finder-container">
         <aside className="sidebar">
           {renderList("Favorites", Object.values(locations))}
-          {renderList("Work", locations.work.children)}
+          {renderList("Projects", locations.work.children)}
           {renderList("About me", locations.about.children)}
         </aside>
 
