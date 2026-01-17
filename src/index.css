@@ -67,8 +67,26 @@ body {
     @apply p-1 hover:bg-gray-200 rounded hover:cursor-default;
   }
 
+  /* font helpers */
+  .font-georama {
+    font-family: var(--font-georama);
+  }
+
+  .font-roboto-mono {
+    font-family: var(--font-roboto);
+  }
+
+  /* compact image thumb */
+  .img-thumb {
+    @apply p-0.5 rounded-sm;
+  }
+
+  .img-thumb img {
+    @apply block;
+  }
+
   #welcome {
-    @apply text-gray-200 flex flex-col justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none max-sm:h-screen max-sm:w-full max-sm:px-10;
+    @apply text-gray-200 flex flex-col justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none max-sm:h-screen max-sm:w-full max-sm:px-10 z-0;
 
     .small-screen {
       @apply sm:hidden m-7 bg-red-300/20 backdrop-blur-lg p-3 rounded-md absolute top-10;
@@ -120,7 +138,7 @@ body {
   }
 
   #safari {
-    @apply w-4xl absolute top-40 left-2/12 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
+    @apply w-4xl  absolute top-40 left-2/12 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden  ;
 
     .search {
       @apply flex items-center gap-3 w-2/3 bg-white border border-gray-300 rounded-lg px-3 py-2;
@@ -210,30 +228,39 @@ body {
   }
 
   #contact {
-    @apply max-w-2xl absolute top-60 left-5/12 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
+    @apply max-w-2xl absolute top-52 left-1/2 -translate-x-1/2 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden h-96;
+
+    #window-header {
+      @apply bg-gray-50 border-b border-gray-100;
+    }
 
     h2 {
-      @apply font-bold text-sm text-center w-full;
+      @apply font-bold text-sm text-center w-full font-georama text-gray-800;
     }
 
-    h3 {
-      @apply text-xl font-semibold;
+    .p-6 {
+      @apply p-6 flex flex-col justify-between h-full;
     }
 
-    ul {
-      @apply flex items-center gap-3;
+    .contact-footer {
+      @apply mt-4 w-full;
+    }
 
-      li {
-        @apply rounded-lg p-3 w-60 hover:-translate-y-0.5 hover:scale-105 origin-center transition-all duration-300;
+    .contact-actions {
+      @apply flex items-center justify-center gap-4 w-full;
+    }
 
-        a {
-          @apply space-y-5;
-        }
+    .action-btn {
+      @apply flex items-center gap-3 px-4 py-3 rounded shadow-sm transition transform text-white text-sm font-medium;
+    }
 
-        p {
-          @apply font-semibold text-sm text-white;
-        }
-      }
+    .action-btn:hover {
+      @apply -translate-y-0.5 shadow-md;
+      transform: translateY(-2px);
+    }
+
+    .contact-actions img {
+      @apply w-5 h-5;
     }
   }
 
@@ -308,59 +335,74 @@ body {
   }
 
   #finder {
-    @apply absolute w-4xl h-[600px] left-40 top-20 shadow-2xl drop-shadow-2xl overflow-hidden rounded-xl bg-white;
+    @apply w-2xl absolute left-40 top-20 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
 
-    .sidebar {
-      @apply w-48 bg-gray-50 border-r border-gray-200 flex flex-col p-5 space-y-3;
+    .finder-container {
+      @apply flex h-80;
 
-      h3 {
-        @apply text-xs font-medium text-gray-400 mb-1;
-      }
+      .sidebar {
+        @apply w-48 shrink-0 bg-gray-50 border-r border-gray-200 flex flex-col p-5 space-y-3 overflow-y-auto;
+          h3 {
+            @apply text-xs font-medium text-gray-400 mb-1;
+          }
 
-      ul {
-        @apply space-y-1;
+          ul {
+            @apply space-y-1;
 
-        .active {
-          @apply bg-blue-100 text-blue-700;
+            .active {
+              @apply bg-blue-100 text-blue-700;
+            }
+
+            .not-active {
+              @apply text-gray-700 hover:bg-gray-200;
+            }
+
+            li {
+              @apply flex items-center gap-2 px-3 py-2 rounded-md cursor-pointer transition-colors;
+            }
+          }
         }
 
-        .not-active {
-          @apply text-gray-700 hover:bg-gray-200;
-        }
+        .content {
+          @apply relative flex-1 p-6 bg-white overflow-y-auto grid grid-cols-3 gap-6 items-start;
 
-        li {
-          @apply flex items-center gap-2 px-3 py-2 rounded-md cursor-pointer transition-colors;
+          .desktop-item {
+            @apply flex flex-col items-center gap-3 text-center cursor-pointer;
+
+            img {
+              @apply object-contain size-16 mb-2;
+            }
+
+            p {
+              @apply text-sm font-medium w-40 truncate;
+            }
+          }
         }
       }
     }
-
-    .content {
-      @apply flex-1 p-8 bg-white relative;
-
-      li {
-        @apply absolute flex items-center flex-col gap-3;
-
-        img {
-          @apply object-contain object-center size-16 relative group-hover:scale-105;
-        }
-
-        p {
-          @apply text-sm text-center font-medium w-40;
-        }
-      }
-    }
-  }
 
   #txtfile {
     @apply w-md absolute top-36 right-32 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
 
+    .techstack {
+      @apply p-6;
+    }
+
     h2 {
-      @apply font-bold text-sm text-center w-full;
+      @apply font-bold text-sm text-center w-full font-georama text-gray-800;
+    }
+
+    .content pre {
+      @apply bg-white p-4 rounded text-sm leading-relaxed border border-gray-100 max-h-72 overflow-auto;
     }
   }
 
   #imgfile {
     @apply w-xl absolute top-40 left-2/12 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
+
+    .techstack {
+      @apply p-6;
+    }
 
     #window-header {
       p {
@@ -368,30 +410,36 @@ body {
       }
     }
 
-    .preview {
-      @apply p-2 bg-gray-200 max-h-[70vh];
+    .preview-image {
+      @apply flex items-center justify-center;
+    }
 
-      img {
-        @apply w-full h-fit object-contain object-center;
-      }
+    .img-thumb img {
+      @apply object-cover;
     }
   }
 
   #home {
-    @apply relative z-0 max-sm:hidden;
+    @apply relative z-20 max-sm:hidden;
 
-    ul {
-      li {
-        @apply absolute z-0 select-none flex items-center flex-col;
+    .home-shortcuts {
+      @apply flex flex-col items-start gap-4 fixed bottom-30 right-210 z-30;
+    }
 
-        img {
-          @apply group-hover:bg-gray-950/10 p-1 rounded-md;
-        }
+    .home-shortcuts li {
+      @apply select-none flex items-center flex-col cursor-pointer;
+    }
 
-        p {
-          @apply text-sm text-white text-center px-1 rounded-md group-hover:bg-blue-500 transition-colors max-w-40;
-        }
-      }
+    .home-shortcuts li:hover img {
+      @apply scale-105 transition-transform;
+    }
+
+    .home-shortcuts img {
+      @apply p-1 rounded-md;
+    }
+
+    .home-shortcuts p {
+      @apply text-sm text-white text-left mt-2 transition-colors max-w-40;
     }
   }
 }

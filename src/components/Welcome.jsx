@@ -1,6 +1,9 @@
 import gsap from "gsap";
 import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
+import useLocationStore from "#store/Location";
+import useWindowStore from "#store/Window";
+import { locations } from "#constants";
 
 const FONT_WEIGHT = {
   subtitle: { min: 100, max: 400, base: 100 },
@@ -77,6 +80,11 @@ const Welcome = () => {
     return () => cleanups.forEach((fn) => fn && fn());
   }, []);
 
+  const { setActiveLocation } = useLocationStore();
+  const { openWindow } = useWindowStore();
+
+  const shortcuts = (locations?.work?.children || []).slice(0, 3);
+
   return (
     <section id="welcome">
       <p ref={subtitleRef} className="text-3xl font-georama">
@@ -90,7 +98,29 @@ const Welcome = () => {
       <div className="small-screen">
         <p className=" text-black">This portfolio is  designed for desktop/tablet screens only.</p>
       </div>
+
+      {/* Home shortcuts (double-click to open project in Finder) */}
+      <section id="home" className="mt-8">
+        <ul className="home-shortcuts" role="list">
+          {shortcuts.map((item) => (
+            <li
+              key={item.id}
+              className="group cursor-pointer"
+              role="button"
+              tabIndex={0}
+              onClick={() => {
+                setActiveLocation(item);
+                openWindow("finder");
+              }}
+              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { setActiveLocation(item); openWindow('finder'); } }}
+            >
+              <img src={item.icon} alt={item.name} className="w-14 h-14 p-1 rounded-md" />
+              <p className="text-sm text-white mt-2 text-center w-36 truncate">{item.name}</p>
+            </li>
+          ))}
+        </ul>
       </section>
+    </section>
   );
 };
 

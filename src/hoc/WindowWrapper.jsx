@@ -14,6 +14,7 @@ const WindowWrapper = (Component, windowKey) => {
     if (!windowState) return null;
 
     const { isOpen, zIndex } = windowState;
+
     const ref = useRef(null);
 
     /* ---------- OPEN ANIMATION ---------- */
@@ -42,7 +43,7 @@ const WindowWrapper = (Component, windowKey) => {
     /* ---------- DRAG + FOCUS ---------- */
     useGSAP(() => {
       const el = ref.current;
-      if (!el) return;
+      if (!el || !isOpen) return;
 
       const [instance] = Draggable.create(el, {
         onPress: () => {
@@ -75,7 +76,7 @@ const WindowWrapper = (Component, windowKey) => {
         id={windowKey}
         ref={ref}
         className="absolute"
-        style={{ zIndex }}
+        style={{ zIndex, display: isOpen ? "block" : "none" }}
         onMouseDown={() => {
           if (isOpen) focusWindow(windowKey);
         }}
