@@ -48,12 +48,12 @@ const TextComponent = () => {
       </div>
 
       <div className="techstack p-6 font-georama text-sm text-gray-700 space-y-4">
-        <p className="text-xs text-gray-500"><span className="font-semibold text-gray-800">@Adrian</span> % show documents</p>
+        <p className="text-xs text-gray-500"><span className="font-semibold text-gray-800">@Jigyansh</span> % show documents</p>
 
         <div className="content max-w-3xl mx-auto space-y-4">
           {textFiles.map(({ name, desc }) => (
             <div key={name} className="mb-4 bg-gray-50 p-4 rounded shadow-sm">
-              <p className="font-semibold text-gray-800">@Adrian % cat {name}</p>
+              <p className="font-semibold text-gray-800">@Jigyansh % cat {name}</p>
 
               {desc.length ? (
                 <div className="mt-2 space-y-1 text-gray-700">
@@ -83,9 +83,7 @@ const TextComponent = () => {
           </p>
         </div>
 
-        <p className="black">
-          <Flag size={15} fill="black" /> render time: 5ms
-        </p>
+       
       </div>
     </>
   );

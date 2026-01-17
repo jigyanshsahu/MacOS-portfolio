@@ -127,13 +127,15 @@ const navLinks = [
   ];
   
   const socials = [
+    // CHANGE: Update the 'link' fields below to your profile URLs (Github, Platform, Twitter/X, LinkedIn, etc.)
     {
       id: 1,
       text: "Github",
       icon: "/icons/github.svg",
       bg: "#f4656b",
-      link: "https://github.com/JavaScript-Mastery-Pro",
+      link: "https://github.com/jigyanshsahu",
     },
+
     {
       id: 2,
       text: "Platform",
@@ -146,14 +148,14 @@ const navLinks = [
       text: "Twitter/X",
       icon: "/icons/twitter.svg",
       bg: "#ff866b",
-      link: "https://x.com/jsmasterypro",
+      link: "https://x.com/SahuJigyansh",
     },
     {
       id: 4,
       text: "LinkedIn",
       icon: "/icons/linkedin.svg",
       bg: "#05b6f6",
-      link: "https://www.linkedin.com/company/javascriptmastery/posts/?feedView=all",
+      link: "https://www.linkedin.com/in/jigyansh-sahu-b39944322/",
     },
   ];
   
@@ -223,9 +225,10 @@ const navLinks = [
     kind: "folder",
     children: [
       // ▶ Project 1
+      // CHANGE: Edit this project's `name`, `description`, `href`, and `imageUrl` to match your project
       {
         id: 5,
-        name: "Nike Ecommerce Website Application",
+        name: " nike.com ",
         icon: "/images/folder.png",
         kind: "folder",
         position: "top-10 left-5", // icon position inside Finder
@@ -251,7 +254,7 @@ const navLinks = [
             icon: "/images/safari.png",
             kind: "file",
             fileType: "url",
-            href: "https://youtu.be/fZdTYswuZjU?si=Awjl-pIst9e09_UU",
+            href: "https://www.nike.com/in/",
             position: "top-10 right-20",
           },
           {
@@ -276,9 +279,10 @@ const navLinks = [
       },
   
       // ▶ Project 2
+      // CHANGE: Edit this project's `name`, `description`, `href`, and `imageUrl` to match your project
       {
         id: 6,
-        name: "AI Resume Analyzer",
+        name: "Thumbcraft AI",
         icon: "/images/folder.png",
         kind: "folder",
         position: "top-52 right-80",
@@ -304,7 +308,7 @@ const navLinks = [
             icon: "/images/safari.png",
             kind: "file",
             fileType: "url",
-            href: "https://youtu.be/iYOz165wGkQ?si=R1hs8Legl200m0Cl",
+            href: "https://github.com/jigyanshsahu/Thumbnail-Generator",
             position: "top-20 left-20",
           },
           {
@@ -329,6 +333,7 @@ const navLinks = [
       },
   
       // ▶ Project 3
+      // CHANGE: Edit this project's `name`, `description`, `href`, and `imageUrl` to match your project
       {
         id: 7,
         name: "Food Delivery App",
@@ -357,7 +362,7 @@ const navLinks = [
             icon: "/images/safari.png",
             kind: "file",
             fileType: "url",
-            href: "https://youtu.be/LKrX390fJMw?si=cExkuVhf2DTV9G2-",
+            href: "https://github.com/jigyanshsahu/Food-Fiesta",
             position: "top-10 right-20",
           },
           {
@@ -397,7 +402,7 @@ const navLinks = [
         kind: "file",
         fileType: "img",
         position: "top-10 left-5",
-        imageUrl: "/images/adrian.jpg",
+        imageUrl: "/images/giyu.jpg", // CHANGE: replace with your profile image path (e.g., "/images/your-name.jpg")
       },
       {
         id: 2,
@@ -406,7 +411,7 @@ const navLinks = [
         kind: "file",
         fileType: "img",
         position: "top-28 right-72",
-        imageUrl: "/images/adrian-2.jpg",
+        imageUrl: "/images/giyu2.jpg", // CHANGE: replace with another profile image path if desired (e.g., "/images/your-name-2.jpg")
       },
       {
         id: 3,
@@ -415,7 +420,7 @@ const navLinks = [
         kind: "file",
         fileType: "img",
         position: "top-52 left-80",
-        imageUrl: "/images/adrian-3.jpeg",
+        imageUrl: "/images/giyu3.jpg", // CHANGE: replace with another image path if desired (e.g., "/images/your-name-3.jpg")
       },
       {
         id: 4,
@@ -425,9 +430,9 @@ const navLinks = [
         fileType: "txt",
         position: "top-60 left-5",
         subtitle: "Meet the Developer Behind the Code",
-        image: "/images/adrian.jpg",
+        image: "/images/giyu.png", // CHANGE: update this to your main profile image path (e.g., "/images/your-name.jpg")
         description: [
-          "Hey! I’m Adrian 👋, a web developer who enjoys building sleek, interactive websites that actually work well.",
+          "Hey! I’m Adrian 👋, a web developer who enjoys building sleek, interactive websites that actually work well.", // CHANGE: replace the name "Adrian" and these strings with your own bio text
           "I specialize in JavaScript, React, and Next.js—and I love making things feel smooth, fast, and just a little bit delightful.",
           "I’m big on clean UI, good UX, and writing code that doesn’t need a search party to debug.",
           "Outside of dev work, you'll find me tweaking layouts at 2AM, sipping overpriced coffee, or impulse-buying gadgets I absolutely convinced myself I needed 😅",

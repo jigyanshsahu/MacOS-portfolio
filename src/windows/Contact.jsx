@@ -7,7 +7,7 @@ import { socials, locations } from "#constants";
 const ContactComponent = () => {
   // try to find an avatar from ABOUT_LOCATION
   const about = locations?.about;
-  const avatar = about?.children?.find((c) => c.kind === "file" && c.fileType === "img")?.imageUrl || "/images/adrian.jpg";
+  const avatar = about?.children?.find((c) => c.kind === "file" && c.fileType === "img")?.imageUrl || "/images/giyu.png";
 
   const footerRef = useRef(null);
 
@@ -31,12 +31,13 @@ const ContactComponent = () => {
         <div className="flex items-start gap-4">
           <img src={avatar} alt="avatar" className="w-16 h-16 rounded-full object-cover shadow" />
 
-          <div className="flex-1">
+          <div className="">
             <h3 className="text-lg font-semibold text-gray-800">Let's Connect</h3>
             <p className="text-sm text-gray-600 mt-1">
-              Got an idea? A bug to squash? Or just wanna talk tech? I'm in.
+              Got an idea? A bug to squash? Or just wanna talk tech? <br /> I'm in.
             </p>
           </div>
+          <h2 className="">jigyanshsahu8@gmail.com</h2>
         </div>
 
         <div className="contact-footer">

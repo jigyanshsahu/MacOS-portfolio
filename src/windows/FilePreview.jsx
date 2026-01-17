@@ -20,7 +20,7 @@ const FilePreviewBase = ({ target }) => {
       </div>
 
       <div className="techstack p-6 font-georama text-sm text-gray-700 space-y-4">
-        <p className="text-xs text-gray-500"><span className="font-semibold text-gray-800">@Adrian</span> % preview</p>
+        <p className="text-xs text-gray-500"><span className="font-semibold text-gray-800">@Jigyansh</span> % preview</p>
 
         <div className="content max-w-3xl mx-auto">
           {!data && (
@@ -51,14 +51,10 @@ const FilePreviewBase = ({ target }) => {
         </div>
 
         <div className="footnote">
-          <p>
-            <Check size={18} /> preview ready
-          </p>
+       
         </div>
 
-        <p className="black">
-          <Flag size={15} fill="black" /> render time: 2ms
-        </p>
+        
       </div>
     </>
   );
