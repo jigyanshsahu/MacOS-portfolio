@@ -2,6 +2,7 @@ import dayjs from 'dayjs'
 import { navLinks } from '#constants'
 import { navIcons } from '#constants/index.js'
 import useWindowStore from '#store/Window.js'
+import MusicPlayer from '#components/MusicPlayer'
 
 const Navbar = () => {
     const { openWindow } = useWindowStore()
@@ -30,6 +31,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div>
+                <MusicPlayer />
                 <ul>
                     {navIcons.map(({id, img}) => (
                         <li key={id}>

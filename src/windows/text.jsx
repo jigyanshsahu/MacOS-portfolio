@@ -1,94 +1,52 @@
-import React, { useEffect, useState } from "react";
-import WindowWrapper from "#hoc/WindowWrapper";
-import WindowControls from "#components/WindowControls";
-import { locations } from "#constants";
-import { Check, Flag } from "lucide-react"; 
+import WindowWrapper from "#hoc/WindowWrapper.jsx";
+import { WindowControls } from "#components";
+import useWindowStore from "#store/Window";
 
-const TextComponent = () => {
-  const [readme, setReadme] = useState(null);
+const Text = () => {
+  const { windows } = useWindowStore();
 
-  useEffect(() => {
-    // try to fetch README.md from project root (works in dev on Vite)
-    fetch("/README.md")
-      .then((r) => (r.ok ? r.text() : null))
-      .then((txt) => setReadme(txt))
-      .catch(() => setReadme(null));
-  }, []);
+  // ✅ ALWAYS default to empty object
+  const data = windows?.txtfile?.data ?? {};
 
-  // collect .txt files from locations
-  const textFiles = [];
+  const { name, image, subtitle, description } = data;
 
-  Object.values(locations).forEach((loc) => {
-    if (!loc.children) return;
-
-    loc.children.forEach((child) => {
-      if (child.kind === "file" && child.fileType === "txt") {
-        textFiles.push({
-          name: child.name,
-          desc: child.description || [],
-        });
-      }
-
-      // nested project children
-      if (child.kind === "folder" && Array.isArray(child.children)) {
-        child.children.forEach((c) => {
-          if (c.kind === "file" && c.fileType === "txt") {
-            textFiles.push({ name: c.name, desc: c.description || [] });
-          }
-        });
-      }
-    });
-  });
+  // ✅ Optional: hide window when no file is selected
+  if (!name && !description && !image) return null;
 
   return (
     <>
-      <div id="window-header">
+      <div id="window-header" className="flex items-center gap-3">
         <WindowControls target="txtfile" />
-        <h2>Documents — Terminal view</h2>
+        <h2 className="text-lg font-semibold">
+          {name || "Text Viewer"}
+        </h2>
       </div>
 
-      <div className="techstack p-6 font-georama text-sm text-gray-700 space-y-4">
-        <p className="text-xs text-gray-500"><span className="font-semibold text-gray-800">@Jigyansh</span> % show documents</p>
+      <div className="p-5 space-y-6 bg-white">
+        {image && (
+          <img
+            src={image}
+            alt={name || "Text window image"}
+            className="w-full h-auto rounded"
+          />
+        )}
 
-        <div className="content max-w-3xl mx-auto space-y-4">
-          {textFiles.map(({ name, desc }) => (
-            <div key={name} className="mb-4 bg-gray-50 p-4 rounded shadow-sm">
-              <p className="font-semibold text-gray-800">@Jigyansh % cat {name}</p>
+        {subtitle && (
+          <h3 className="text-lg font-semibold text-gray-900">
+            {subtitle}
+          </h3>
+        )}
 
-              {desc.length ? (
-                <div className="mt-2 space-y-1 text-gray-700">
-                  {desc.map((line, i) => (
-                    <p key={i}>{line}</p>
-                  ))}
-                </div>
-              ) : (
-                <p className="mt-2 italic text-sm text-gray-500">(no text available)</p>
-              )}
-            </div>
-          ))}
-
-          {readme && (
-            <div className="mb-4 bg-gray-50 p-4 rounded shadow-sm">
-              <p className="font-semibold text-gray-800">@Adrian % cat README.md</p>
-              <pre className="mt-2 max-h-72 overflow-auto whitespace-pre-wrap bg-white p-4 rounded text-sm leading-relaxed text-gray-700 border border-gray-100">
-                {readme}
-              </pre>
-            </div>
-          )}
-        </div>
-
-        <div className="footnote">
-          <p>
-            <Check size={18} /> {textFiles.length + (readme ? 1 : 0)} document(s) loaded
-          </p>
-        </div>
-
-       
+        {Array.isArray(description) && (
+          <div className="space-y-3 leading-relaxed text-base text-gray-800">
+            {description.map((para, idx) => (
+              <p key={idx}>{para}</p>
+            ))}
+          </div>
+        )}
       </div>
     </>
   );
 };
 
-const TextWindow = WindowWrapper(TextComponent, "txtfile");
-
-export default TextWindow;
+export default WindowWrapper(Text, "txtfile");
