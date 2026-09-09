@@ -169,7 +169,7 @@ const MusicPlayer = () => {
                     embedDisabled
                         ? 'opacity-50 cursor-not-allowed text-red-400'
                         : isPlaying
-                        ? 'text-emerald-500 font-medium'
+                        ? 'text-black font-medium'
                         : 'text-inherit'
                 }`}
                 title={
