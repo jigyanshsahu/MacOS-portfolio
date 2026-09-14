@@ -37,7 +37,11 @@ const ContactComponent = () => {
               Got an idea? A bug to squash? Or just wanna talk tech? <br /> I'm in.
             </p>
           </div>
-          <h2 className="">jigyanshsahu8@gmail.com</h2>
+          <h2 className="">jigyanshsahu8@gmail.com
+    <br />
+    <h1>9340213375</h1>
+
+          </h2>
         </div>
 
         <div className="contact-footer">
