@@ -359,7 +359,7 @@ const WORK_LOCATION = {
           icon: "/images/safari.png",
           kind: "file",
           fileType: "url",
-          href: "https://github.com/jigyanshsahu/Food-Fiesta",
+          href: "https://food-fiesta-frontend-bopc.onrender.com/",
           position: "top-10 right-20",
         },
         {
